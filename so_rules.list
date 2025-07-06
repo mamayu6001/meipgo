@@ -1,0 +1,72 @@
+# MoreLogin & Crypto Work Ruleset
+
+# === 订阅域名直连 (Critical for updates) ===
+HOST, w3-vip.com, DIRECT
+HOST, wwwjs-connect.com, DIRECT
+
+# === MoreLogin 业务规则集 ===
+# --- Pool 1 (9 IPs) ---
+ip-cidr, 151.242.189.166/32, MoreLogin-Pool-1, dest-port=20001
+ip-cidr, 151.242.189.144/32, MoreLogin-Pool-1, dest-port=20002
+ip-cidr, 151.242.188.32/32, MoreLogin-Pool-1, dest-port=20003
+ip-cidr, 151.242.189.15/32, MoreLogin-Pool-1, dest-port=20001
+ip-cidr, 151.242.188.61/32, MoreLogin-Pool-1, dest-port=20002
+ip-cidr, 151.242.188.189/32, MoreLogin-Pool-1, dest-port=20003
+ip-cidr, 210.79.150.190/32, MoreLogin-Pool-1, dest-port=20000
+ip-cidr, 210.79.150.185/32, MoreLogin-Pool-1, dest-port=20000
+ip-cidr, 151.242.189.28/32, MoreLogin-Pool-1, dest-port=20000
+
+# --- Pool 2 (9 IPs) ---
+ip-cidr, 151.242.188.190/32, MoreLogin-Pool-2, dest-port=20004
+ip-cidr, 151.242.188.179/32, MoreLogin-Pool-2, dest-port=20005
+ip-cidr, 151.242.188.166/32, MoreLogin-Pool-2, dest-port=20006
+ip-cidr, 151.242.188.183/32, MoreLogin-Pool-2, dest-port=20004
+ip-cidr, 151.242.188.139/32, MoreLogin-Pool-2, dest-port=20005
+ip-cidr, 151.242.189.146/32, MoreLogin-Pool-2, dest-port=20006
+ip-cidr, 151.242.188.51/32, MoreLogin-Pool-2, dest-port=20001
+ip-cidr, 151.242.188.24/32, MoreLogin-Pool-2, dest-port=20002
+ip-cidr, 151.242.188.226/32, MoreLogin-Pool-2, dest-port=20003
+
+# --- Pool 3 (9 IPs) ---
+ip-cidr, 151.242.189.226/32, MoreLogin-Pool-3, dest-port=20007
+ip-cidr, 151.242.189.224/32, MoreLogin-Pool-3, dest-port=20008
+ip-cidr, 151.242.189.168/32, MoreLogin-Pool-3, dest-port=20009
+ip-cidr, 151.242.189.249/32, MoreLogin-Pool-3, dest-port=20007
+ip-cidr, 151.242.189.196/32, MoreLogin-Pool-3, dest-port=20008
+ip-cidr, 151.242.188.49/32, MoreLogin-Pool-3, dest-port=20009
+ip-cidr, 151.242.188.137/32, MoreLogin-Pool-3, dest-port=20004
+ip-cidr, 140.235.39.125/32, MoreLogin-Pool-3, dest-port=20004
+ip-cidr, 140.235.39.28/32, MoreLogin-Pool-3, dest-port=20003
+
+# --- Pool 4 (9 IPs) ---
+ip-cidr, 151.242.189.120/32, MoreLogin-Pool-4, dest-port=20010
+ip-cidr, 151.242.188.72/32, MoreLogin-Pool-4, dest-port=20011
+ip-cidr, 151.242.188.247/32, MoreLogin-Pool-4, dest-port=20012
+ip-cidr, 151.242.188.41/32, MoreLogin-Pool-4, dest-port=20010
+ip-cidr, 151.242.188.37/32, MoreLogin-Pool-4, dest-port=20011
+ip-cidr, 151.242.188.25/32, MoreLogin-Pool-4, dest-port=20012
+ip-cidr, 140.235.39.44/32, MoreLogin-Pool-4, dest-port=20002
+ip-cidr, 140.235.39.84/32, MoreLogin-Pool-4, dest-port=20001
+ip-cidr, 213.210.4.12/32, MoreLogin-Pool-4, dest-port=20000
+
+# --- Local Pool Rules ---
+ip-cidr, 103.137.185.207/32, Local-Pool, dest-port=30000
+ip-cidr, 103.137.185.80/32, Local-Pool, dest-port=30000
+ip-cidr, 103.137.185.184/32, Local-Pool, dest-port=30000
+ip-cidr, 103.137.185.245/32, Local-Pool, dest-port=30000
+ip-cidr, 103.137.185.201/32, Local-Pool, dest-port=30000
+ip-cidr, 103.137.185.114/32, Local-Pool, dest-port=30000
+ip-cidr, 103.137.185.246/32, Local-Pool, dest-port=30000
+ip-cidr, 103.137.185.15/32, Local-Pool, dest-port=30000
+ip-cidr, 103.137.185.41/32, Local-Pool, dest-port=30000
+ip-cidr, 103.137.185.60/32, Local-Pool, dest-port=30000
+
+# === 域名规则 (Domain-Based Rules) ===
+HOST-SUFFIX, openai.com, ChatGPT-Auto
+HOST-KEYWORD, chatgpt, ChatGPT-Auto
+HOST, morelogin.com, PROXY
+HOST-KEYWORD, morelogin, PROXY
+
+# === 最终规则 (Final Rules) ===
+GEOIP, CN, DIRECT
+FINAL, MANUAL, dns-failed
